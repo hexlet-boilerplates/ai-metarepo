@@ -49,3 +49,52 @@ mise run check
 ## Как работать с агентом
 
 Запускайте агента из корня метарепозитория, подробности в [docs/agents/repository-layout.md](docs/agents/repository-layout.md). Параллельные задачи ведутся в worktrees ([docs/agents/worktrees.md](docs/agents/worktrees.md)).
+
+## Related
+
+Похожие репозитории, статьи и инструменты. Список собран 23 октября 2026 года, часть проектов небольшие и могут устареть.
+
+### Репозитории для работы с агентами
+
+- [Gotop1711/multi-repos-ai-agent-workspace](https://github.com/Gotop1711/multi-repos-ai-agent-workspace), клоны в `.gitignore` под `projects/`, манифест с правами доступа по репозиториям.
+- [dean0x/mars](https://github.com/dean0x/mars), рабочее место для полирепозиторной разработки с агентами, манифест `mars.yaml`.
+- [Vainstel/agent-workspace](https://github.com/Vainstel/agent-workspace), один вход для агента в многорепозиторном контексте.
+- [HomericIntelligence/Odysseus](https://github.com/HomericIntelligence/Odysseus), метарепозиторий на submodules с журналом ADR.
+- [MichaelYochpaz/ai-workspace-template](https://github.com/MichaelYochpaz/ai-workspace-template), шаблон на submodules с общими скиллами, архивирован.
+- [tapelab-io/polyrepo-brain](https://github.com/tapelab-io/polyrepo-brain) и [filipealva/virtual-workspace](https://github.com/filipealva/virtual-workspace).
+
+### Статьи
+
+- [The Meta-Repo Pattern](https://devnewsletter.com/p/meta-repo-pattern/) и [Operating a Meta-Repo](https://devnewsletter.com/p/operating-a-meta-repo/).
+- [In Which We Give Our AI Agent a Map](https://seylox.github.io/2026/03/05/blog-agents-meta-repo-pattern.html), карта репозиториев в `AGENTS.md`.
+- [The Spine Pattern](https://tsoporan.com/blog/spine-pattern-multi-repo-ai-development/).
+- [The Meta-Repo as AI Multiplier](https://dev.to/jensreynderstech/the-meta-repo-as-ai-multiplier-2dda).
+- [The context problem nobody solved](https://dev.to/mnzs/the-context-problem-nobody-solved-ai-agents-across-multiple-repos-4533), пять способов собрать контекст из нескольких репозиториев.
+- [The missing workspace layer for agentic polyrepo development](https://dev.to/dean0x/the-missing-workspace-layer-for-agentic-polyrepo-development-pae).
+- [One entry point for your coding agent](https://dev.to/vains/one-entry-point-for-your-coding-agent-organizing-multi-repo-multi-product-context-52nd).
+- [A single dev workspace for AI agents](https://www.superblocks.com/blog/a-single-dev-workspace-for-ai-agents).
+- [Agentic tooling across multiple repositories](https://ricky-dev.com/coding/2026/01/agentic-tooling-across-multiple-repositories/), worktrees по одному на задачу.
+- [How I Use Claude Code](https://goanpeca.co/en/blog/how-i-use-claude-code/), метарепозитории, сохранение планов, журналы итераций.
+- [The Omnirepo](https://www.goldsborough.io/the-omnirepo-ai-orchestration-across-enterprises/).
+- [Central agent instructions via git submodules](https://blog.g9n.com/a-centralised-approach-to-ai-llm-agent-instruction-using-git-submodules).
+
+### Монорепозиторий как альтернатива
+
+Это позиция вендоров, измерений метарепозитория против монорепозитория там нет.
+
+- [monorepo.tools/ai](https://monorepo.tools/ai), Nx о влиянии монорепозиториев на агентов.
+- [Monorepo vs polyrepo, AI's new rules for repo architecture](https://www.augmentcode.com/guides/monorepo-vs-polyrepo-ai-s-new-rules-for-repo-architecture), Augment.
+
+### Инструменты, которые связывают репозитории
+
+- [mateodelnorte/meta](https://github.com/mateodelnorte/meta), исходный инструмент «meta repo».
+- [west](https://docs.zephyrproject.org/latest/develop/west/workspaces.html), Zephyr, манифест `west.yml` в [zephyr](https://github.com/zephyrproject-rtos/zephyr/blob/main/west.yml).
+- [repo](https://gerrit.googlesource.com/git-repo/+/HEAD/docs/manifest-format.md), Android, [манифест AOSP](https://android.googlesource.com/platform/manifest/+/refs/heads/main/default.xml).
+- [git submodule](https://git-scm.com/docs/git-submodule).
+- [ghorg](https://github.com/gabrie30/ghorg), клонирование организации, используется здесь.
+
+### Документация агентов
+
+- [Claude Code, AGENTS.md и память](https://code.claude.com/docs/en/memory#agents-md).
+- [anthropics/claude-code#12962](https://github.com/anthropics/claude-code/issues/12962), [#26489](https://github.com/anthropics/claude-code/issues/26489), [#56853](https://github.com/anthropics/claude-code/issues/56853), запросы про несколько репозиториев.
+- [openai/codex#27943](https://github.com/openai/codex/issues/27943), то же для Codex.
