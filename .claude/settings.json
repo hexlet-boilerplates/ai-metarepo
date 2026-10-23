@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push *)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}

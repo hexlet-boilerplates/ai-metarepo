@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE description="Поставить инструменты и git-хуки метарепозитория"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+mise install
+# hk пишет хуки в .git/config этого репозитория, общий core.hooksPath не нужен.
+hk install

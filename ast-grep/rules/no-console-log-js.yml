@@ -1,0 +1,14 @@
+# console.log в коде шаблона остаётся в проектах, которые с него стартуют.
+# Сообщения для пользователя идут через логгер или возвращаемое значение.
+# Правило для JavaScript. Для TypeScript рядом лежит no-console-log-ts.yml,
+# потому что язык в ast-grep задаётся на правило.
+id: no-console-log-js
+language: javascript
+severity: error
+message: console.log в шаблоне, используйте логгер или верните значение
+rule:
+  pattern: console.log($$$ARGS)
+ignores:
+  - "**/__tests__/**"
+  - "**/test/**"
+  - "**/bin/**"

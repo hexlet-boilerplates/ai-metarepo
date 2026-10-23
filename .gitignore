@@ -1,0 +1,11 @@
+# Клоны шаблонов: у каждого свой git, метарепозиторий их не отслеживает.
+repos/*
+!repos/README.md
+
+# Worktrees под задачи (mise run worktree).
+.worktrees/
+
+# Личные настройки агента не коммитятся.
+.claude/settings.local.json
+
+.DS_Store

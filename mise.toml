@@ -1,0 +1,15 @@
+# Инструменты и задачи метарепозитория. Одна команда ставит всё необходимое.
+#
+#   mise trust && mise run setup
+#
+# Версии здесь latest, потому что демонстрации нужна рабочая связка на сегодня,
+# а не воспроизводимая сборка. Для проекта с релизами версии фиксируют.
+
+[tools]
+"aqua:gabrie30/ghorg" = "latest"
+"aqua:ast-grep/ast-grep" = "latest"
+gh = "latest"
+hk = "latest"
+pkl = "latest"
+
+# Задачи лежат файлами в mise-tasks/ (см. mise-tasks/README.md).

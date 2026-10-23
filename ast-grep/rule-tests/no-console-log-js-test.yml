@@ -1,0 +1,13 @@
+id: no-console-log-js
+valid:
+  - |
+    logger.info("готово");
+  - |
+    const log = console.error;
+invalid:
+  - |
+    console.log("готово");
+  - |
+    function run() {
+      console.log(value, other);
+    }

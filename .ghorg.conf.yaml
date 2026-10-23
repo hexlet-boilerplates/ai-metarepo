@@ -1,0 +1,25 @@
+# Конфиг ghorg: какие репозитории клонировать в repos/.
+#
+# Запуск идёт задачей `mise run clone`, она подставляет токен из `gh auth token`
+# и передаёт организацию. Ghorg выбирает репозитории организации по имени,
+# поэтому список ниже это регулярное выражение, а не перечень адресов.
+
+GHORG_SCM_TYPE: github
+GHORG_CLONE_TYPE: org
+GHORG_CLONE_PROTOCOL: https
+GHORG_COLOR: disabled
+GHORG_CONCURRENCY: 4
+GHORG_EXIT_CODE_ON_CLONE_ISSUES: 1
+
+# Каталог клонов относительно --path, который задаёт задача clone.
+GHORG_OUTPUT_DIR: repos
+
+# Обязательно. Без этого флага повторный запуск делает git clean в каждом клоне
+# и стирает неоформленные правки (ADR 0001).
+GHORG_NO_CLEAN: true
+
+# Архивные репозитории read-only, коммит в них не примут.
+GHORG_SKIP_ARCHIVED: true
+
+# Четыре шаблона на выбор демонстрации. Сам ai-metarepo сюда не попадает.
+GHORG_MATCH_REGEX: '^(nodejs-package|typescript-package|vite-package|fastify-api-application)$'

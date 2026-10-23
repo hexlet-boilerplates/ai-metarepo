@@ -1,0 +1,13 @@
+id: no-console-log-ts
+valid:
+  - |
+    const message: string = format(value);
+  - |
+    logger.info("готово");
+invalid:
+  - |
+    console.log("готово");
+  - |
+    const run = (value: number): void => {
+      console.log(value);
+    };

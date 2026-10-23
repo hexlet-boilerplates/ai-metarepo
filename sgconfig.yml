@@ -1,0 +1,6 @@
+# ast-grep: правила по шаблону на дереве разбора. Запуск из корня метарепозитория,
+# обычно через `mise run check`. Устройство каталога в ast-grep/README.md.
+ruleDirs:
+  - ast-grep/rules
+testConfigs:
+  - testDir: ast-grep/rule-tests

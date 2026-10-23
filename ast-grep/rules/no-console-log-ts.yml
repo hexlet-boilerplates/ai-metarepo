@@ -1,0 +1,11 @@
+# То же правило для TypeScript, см. no-console-log-js.yml.
+id: no-console-log-ts
+language: typescript
+severity: error
+message: console.log в шаблоне, используйте логгер или верните значение
+rule:
+  pattern: console.log($$$ARGS)
+ignores:
+  - "**/__tests__/**"
+  - "**/test/**"
+  - "**/bin/**"

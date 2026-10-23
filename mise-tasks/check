@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#MISE description="Проверить правила ast-grep и контракт из specs/ по всем клонам"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+ast-grep test --skip-snapshot-tests
+
+failed=0
+for dir in repos/*/; do
+	[ -d "$dir/.git" ] || continue
+	echo "== $dir"
+	# repos/* в .gitignore метарепозитория, и без --no-ignore parent ast-grep
+	# пропустил бы клоны. Собственный .gitignore клона (node_modules) действует.
+	ast-grep scan --no-ignore parent "$dir" || failed=1
+
+	# specs/boilerplate-conventions.md: у каждого шаблона есть make install.
+	if ! grep -qE '^install:' "$dir/Makefile" 2>/dev/null; then
+		echo "$dir: нет цели install в Makefile (specs/boilerplate-conventions.md)"
+		failed=1
+	fi
+done
+
+exit "$failed"

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#MISE description="Создать worktree под задачу в одном из клонов"
+#USAGE arg "<repo>" help="Имя клона в repos/, например nodejs-package"
+#USAGE arg "<branch>" help="Имя новой ветки, например fix-lint-config"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+repo="$usage_repo"
+branch="$usage_branch"
+target=".worktrees/$repo-$branch"
+
+[ -d "repos/$repo/.git" ] || { echo "repos/$repo не клон, сначала mise run clone" >&2; exit 1; }
+
+# Worktree лежит внутри метарепозитория, поэтому агент, запущенный в нём,
+# поднимается по каталогам до AGENTS.md метарепозитория.
+git -C "repos/$repo" worktree add "$MISE_CONFIG_ROOT/$target" -b "$branch"
+echo "Worktree готов: $target"

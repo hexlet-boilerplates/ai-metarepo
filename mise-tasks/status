@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#MISE description="Показать ветку и число изменённых файлов в каждом клоне"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+# Ветка проверяется в каждом репозитории отдельно: у клонов свои git и свои
+# ветки, метарепозиторий их не знает.
+printf '%-28s %-20s %s\n' REPO BRANCH CHANGED
+for dir in repos/*/; do
+	[ -d "$dir/.git" ] || continue
+	branch="$(git -C "$dir" branch --show-current)"
+	changed="$(git -C "$dir" status --short | wc -l | tr -d ' ')"
+	printf '%-28s %-20s %s\n' "$(basename "$dir")" "${branch:-detached}" "$changed"
+done

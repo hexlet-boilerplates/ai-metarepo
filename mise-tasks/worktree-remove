@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#MISE description="Удалить worktree, созданный задачей worktree"
+#USAGE arg "<repo>" help="Имя клона в repos/"
+#USAGE arg "<branch>" help="Ветка, под которую создан worktree"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+repo="$usage_repo"
+branch="$usage_branch"
+target="$MISE_CONFIG_ROOT/.worktrees/$repo-$branch"
+
+# Допускает повторный вызов: если каталога уже нет, остаётся почистить записи git.
+if [ -d "$target" ]; then
+	git -C "repos/$repo" worktree remove "$target"
+fi
+git -C "repos/$repo" worktree prune
+echo "Worktree $repo-$branch удалён, ветка $branch осталась в repos/$repo"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#MISE description="Обновить каждый клон в repos/ через git pull --rebase --autostash"
+set -euo pipefail
+cd "$MISE_CONFIG_ROOT"
+
+for dir in repos/*/; do
+	[ -d "$dir/.git" ] || continue
+	echo "== $dir"
+	git -C "$dir" pull --rebase --autostash
+done

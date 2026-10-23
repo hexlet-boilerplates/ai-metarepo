@@ -1,0 +1,16 @@
+amends "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Config.pkl"
+
+// Хук срабатывает только в git метарепозитория, у клонов в repos/ свой git и
+// свои хуки (docs/agents/tooling.md). Поэтому здесь проверяется то, что
+// коммитится сюда, то есть сами правила и спеки. Клоны проверяет `mise run check`.
+steps {
+    ["ast-grep-rules"] {
+        glob = List("ast-grep/**", "sgconfig.yml")
+        check = "ast-grep test --skip-snapshot-tests"
+    }
+    ["mise-tasks"] {
+        glob = List("mise-tasks/**")
+        exclude = List("mise-tasks/README.md")
+        check = "for f in {{files}}; do bash -n \"$f\" || exit 1; done"
+    }
+}
