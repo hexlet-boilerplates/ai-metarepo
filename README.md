@@ -30,6 +30,7 @@ mise run check
 | `specs/` | Спеки и контракты, общие для шаблонов | [specs/README.md](specs/README.md) |
 | `docs/agents/` | Подробные правила для агента | [docs/agents/README.md](docs/agents/README.md) |
 | `docs/adr/` | Решения, которые действуют на все репозитории | [docs/adr/README.md](docs/adr/README.md) |
+| `.github/workflows/` | CI, запускает `mise run check` по клонам | [docs/agents/tooling.md](docs/agents/tooling.md) |
 | `.claude/`, `.agents/` | Настройки агента и скиллы | [docs/agents/agent-settings.md](docs/agents/agent-settings.md) |
 | `repos/` | Клоны шаблонов, в `.gitignore` | [repos/README.md](repos/README.md) |
 

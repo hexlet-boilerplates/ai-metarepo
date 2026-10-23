@@ -1,0 +1,27 @@
+name: Check
+
+# Клоны следуют за main чужих репозиториев, поэтому проверка идёт не только на
+# push, но и по расписанию: так находка в шаблоне видна без правки здесь.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v5
+      - name: Клонировать шаблоны
+        run: mise run clone
+      - name: Проверить правила и контракт
+        run: mise run check
