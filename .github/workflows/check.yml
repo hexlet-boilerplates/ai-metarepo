@@ -1,13 +1,10 @@
 name: Check
 
-# Клоны следуют за main чужих репозиториев, поэтому проверка идёт не только на
-# push, но и по расписанию: так находка в шаблоне видна без правки здесь.
+# Общие проверки идут сразу, на каждый push и pull request.
 on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 permissions:

@@ -35,7 +35,7 @@
 
 ## CI
 
-Workflow `.github/workflows/check.yml` ставит инструменты через `mise`, клонирует шаблоны и запускает `mise run check`. Он идёт на push в `main`, на pull request и раз в неделю по расписанию, потому что клоны следуют за `main` чужих репозиториев и находка может появиться без правки здесь. Токен для ghorg приходит из `GH_TOKEN`.
+Workflow `.github/workflows/check.yml` ставит инструменты через `mise`, клонирует шаблоны и запускает `mise run check`. Он идёт на push в `main` и на pull request, расписания у него нет. Токен для ghorg приходит из `GH_TOKEN`.
 
 ## Что не подключено
 
