@@ -2,6 +2,10 @@
 
 Документ читается перед правкой `mise.toml`, `hk.pkl`, `sgconfig.yml` и задач.
 
+## Источник тулов
+
+Тулы и общие проверки берутся из [mokevnin/dev-guardrails](https://github.com/mokevnin/dev-guardrails).
+
 ## mise
 
 `mise.toml` объявляет инструменты (`ghorg`, `ast-grep`, `gh`, `hk`, `pkl`), задачи лежат файлами в `mise-tasks/`. Свежий клон ставится двумя командами, `mise trust` и `mise run setup`. Доверие нужно, потому что конфиг mise может запускать код.

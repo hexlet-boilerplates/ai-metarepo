@@ -54,6 +54,10 @@ mise run check
 
 Похожие репозитории, статьи и инструменты. Список собран 23 октября 2026 года, часть проектов небольшие и могут устареть.
 
+### Источник тулов
+
+- [mokevnin/dev-guardrails](https://github.com/mokevnin/dev-guardrails), откуда берутся тулы и проверки для метарепозитория.
+
 ### Репозитории для работы с агентами
 
 - [Gotop1711/multi-repos-ai-agent-workspace](https://github.com/Gotop1711/multi-repos-ai-agent-workspace), клоны в `.gitignore` под `projects/`, манифест с правами доступа по репозиториям.
