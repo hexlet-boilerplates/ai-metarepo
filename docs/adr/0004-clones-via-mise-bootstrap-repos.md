@@ -4,7 +4,7 @@ status: accepted
 
 # Клоны задаются секцией [bootstrap.repos] в mise, а не ghorg и не submodules
 
-Шаблоны перечислены в `[bootstrap.repos]` в `mise.toml`, ключ это путь клона, значение это адрес. Клонирует `mise bootstrap repos apply` (задача `mise run clone`), обновляет `mise bootstrap repos update --skip-dirty` (задача `mise run pull`). Каталог `repos/` лежит в `.gitignore`, метарепозиторий не хранит коммиты клонов. Решение заменяет [ADR 0001](0001-clones-via-ghorg-not-submodules.md).
+Шаблоны перечислены в `[bootstrap.repos]` в `mise.toml`, ключ это путь клона, значение это адрес. Клонирует `mise bootstrap repos apply` (задача `mise run clone`), обновляет задача `mise run pull`, которая выполняет в каждом клоне `git pull --rebase --autostash`. Каталог `repos/` лежит в `.gitignore`, метарепозиторий не хранит коммиты клонов. Решение заменяет [ADR 0001](0001-clones-via-ghorg-not-submodules.md).
 
 ## Considered Options
 
@@ -17,7 +17,7 @@ status: accepted
 ## Consequences
 
 - Версия клона равна моменту клонирования. Воспроизводимости по коммитам нет, и если она понадобится, решение пересматривается в пользу submodules.
-- `update` делает fast-forward и не заменяет `git pull --rebase --autostash`. Клон с правками пропускается, обновить его нужно руками внутри клона.
+- `mise bootstrap repos update` делает fast-forward и пропускает клоны с правками, поэтому для `pull` он не используется. Обновление идёт через `git pull --rebase --autostash`, как требует `AGENTS.md`, а конфликты и забытый stash задача выводит списком.
 - Нужна версия mise не ниже 2026.9.6 (`min_version` в `mise.toml`).
 - Список клонов дублируется в таблице `repos/README.md`, и при правке `mise.toml` таблицу нужно поправить вместе с ним.
 - ghorg и `gh` из `[tools]` убраны, `.ghorg.conf.yaml` удалён.

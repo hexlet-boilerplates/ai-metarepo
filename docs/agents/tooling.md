@@ -18,7 +18,7 @@
 
 ## Клоны
 
-Список клонов в `[bootstrap.repos]`, клонирует `mise run clone`, обновляет `mise run pull`. Правила и ограничения в [repos/README.md](../../repos/README.md), причина выбора в [ADR 0004](../adr/0004-clones-via-mise-bootstrap-repos.md).
+Список клонов в `[bootstrap.repos]`, клонирует `mise run clone` (`mise bootstrap repos apply`), обновляет `mise run pull` (`git pull --rebase --autostash` в каждом клоне, конфликты выводятся списком). Правила и ограничения в [repos/README.md](../../repos/README.md), причина выбора в [ADR 0004](../adr/0004-clones-via-mise-bootstrap-repos.md).
 
 ## Git-хуки
 

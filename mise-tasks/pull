@@ -1,7 +1,28 @@
 #!/usr/bin/env bash
-#MISE description="Подтянуть каждый клон в repos/ без перезаписи локальных правок"
+#MISE description="Обновить каждый клон в repos/ через git pull --rebase --autostash"
 set -euo pipefail
 
-# Клон с локальными правками пропускается с предупреждением, остальные
-# обновляются fast-forward. Rebase и autostash здесь не нужны, mise их не делает.
-mise bootstrap repos update --skip-dirty --yes
+# Клон с правками обновляется вместе с ними, как требует AGENTS.md. Если rebase
+# или возврат правок из stash дал конфликт, клон попадает в итоговый список, а
+# остальные клоны всё равно обновляются.
+failed=()
+for dir in repos/*/; do
+	[ -d "$dir/.git" ] || continue
+	echo "== $dir"
+	if ! git -C "$dir" pull --rebase --autostash; then
+		failed+=("$dir")
+		continue
+	fi
+	# Autostash при конфликте оставляет маркеры в файлах, а git всё равно может
+	# вернуть нулевой код, поэтому конфликты и забытый stash ищем отдельно.
+	if [ -n "$(git -C "$dir" diff --name-only --diff-filter=U)" ] || [ -n "$(git -C "$dir" stash list)" ]; then
+		failed+=("$dir")
+	fi
+done
+
+if [ "${#failed[@]}" -gt 0 ]; then
+	echo
+	echo "Конфликты или необработанный stash, разберите вручную:"
+	printf '  %s\n' "${failed[@]}"
+	exit 1
+fi

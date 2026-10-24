@@ -38,7 +38,7 @@ mise run check
 | --- | --- |
 | `mise run setup` | Ставит git-хуки |
 | `mise run clone` | Клонирует шаблоны из `[bootstrap.repos]`, повторный запуск безопасен |
-| `mise run pull` | Подтягивает каждый клон, клоны с правками пропускает |
+| `mise run pull` | Обновляет каждый клон через `git pull --rebase --autostash`, конфликты выводит списком |
 | `mise run status` | Показывает ветку и число изменённых файлов в каждом клоне |
 | `mise run check` | Тесты правил, `ast-grep scan` по клонам, проверка контракта |
 | `mise run worktree <repo> <branch>` | Создаёт worktree под задачу в клоне |

@@ -8,7 +8,7 @@
 | --- | --- |
 | `setup` | `hk install --mise` |
 | `clone` | `mise bootstrap repos apply`, клонирует шаблоны из `[bootstrap.repos]` |
-| `pull` | `mise bootstrap repos update --skip-dirty`, клоны с правками пропускает |
+| `pull` | `git pull --rebase --autostash` в каждом клоне, конфликты выводит списком |
 | `status` | Ветка и число изменённых файлов в каждом клоне |
 | `check` | Тесты правил, `ast-grep scan` по клонам, проверка контракта |
 | `worktree` | Worktree под задачу в клоне |

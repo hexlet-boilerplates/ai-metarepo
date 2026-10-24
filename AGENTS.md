@@ -14,7 +14,7 @@
 
 ## Клоны
 
-- Клонирует `mise run clone`, обновляет `mise run pull`. Список клонов задаёт `[bootstrap.repos]` в `mise.toml`. Клон с правками mise не трогает, и это поведение не обходи (ADR 0004).
+- Клонирует `mise run clone`, обновляет `mise run pull`. Список клонов задаёт `[bootstrap.repos]` в `mise.toml` (ADR 0004). После `pull` ищи конфликты и `git stash list` в клоне, прежде чем коммитить: autostash при конфликте оставляет маркеры в файлах.
 - `repos/` в `.gitignore`. Файлы клонов коммитятся в их репозиториях, не в этот.
 - Не создавай `CLAUDE.md`, `CLAUDE.local.md` и `.claude/CLAUDE.md`. Любой из них отключает чтение `AGENTS.md` в Claude Code (ADR 0002).
 
