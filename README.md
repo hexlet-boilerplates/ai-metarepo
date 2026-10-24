@@ -41,6 +41,7 @@ mise run check
 | `mise run pull` | Обновляет каждый клон через `git pull --rebase --autostash`, конфликты выводит списком |
 | `mise run status` | Показывает ветку и число изменённых файлов в каждом клоне |
 | `mise run check` | Тесты правил, `ast-grep scan` по клонам, проверка контракта |
+| `mise run lint` | `rumdl`, `typos`, `jactionlint` и `agnix` по текстам, workflow и настройкам агента |
 | `mise run worktree <repo> <branch>` | Создаёт worktree под задачу в клоне |
 | `mise run worktree-remove <repo> <branch>` | Удаляет такой worktree |
 

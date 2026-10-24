@@ -14,6 +14,13 @@ min_version = "2026.9.6"
 hk = "latest"
 pkl = "latest"
 
+# Проверки текстов и настроек агента, источник выбора dev-guardrails.
+rumdl = "latest"
+typos = "latest"
+jactionlint = "latest"
+shellcheck = "latest"
+"github:agent-sh/agnix" = "latest"
+
 # Клоны шаблонов. Адрес это весь манифест, mise не трогает правки в клонах.
 [bootstrap.repos]
 "repos/nodejs-package" = { url = "https://github.com/hexlet-boilerplates/nodejs-package.git" }

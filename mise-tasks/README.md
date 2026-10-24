@@ -11,6 +11,7 @@
 | `pull` | `git pull --rebase --autostash` в каждом клоне, конфликты выводит списком |
 | `status` | Ветка и число изменённых файлов в каждом клоне |
 | `check` | Тесты правил, `ast-grep scan` по клонам, проверка контракта |
+| `lint` | `rumdl`, `typos`, `jactionlint` и `agnix` |
 | `worktree` | Worktree под задачу в клоне |
 | `worktree-remove` | Удаление такого worktree |
 

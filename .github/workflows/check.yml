@@ -20,9 +20,13 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - uses: jdx/mise-action@v5
       - name: Проверить mise.toml, задачи и hk.pkl
         run: mise exec -- hk check --all
+      - name: Проверить тексты и настройки агента
+        run: mise run lint
       - name: Клонировать шаблоны
         run: mise run clone
       - name: Проверить правила и контракт

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Проверить тексты, workflow и настройки агента: rumdl, typos, jactionlint, agnix"
+set -euo pipefail
+
+rumdl check .
+typos
+jactionlint
+# Без --strict предупреждения agnix выходят с кодом 0.
+agnix --strict .
