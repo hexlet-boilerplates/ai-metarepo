@@ -24,3 +24,14 @@ steps {
         fix = "mise fmt"
     }
 }
+
+hooks {
+    // Медленный уровень: проверки текстов и настроек агента целиком
+    ["pre-push"] {
+        steps {
+            ["lint"] {
+                check = "mise run lint"
+            }
+        }
+    }
+}

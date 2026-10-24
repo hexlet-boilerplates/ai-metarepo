@@ -22,6 +22,8 @@
 
 ## Git-хуки
 
+hk главный раннер хуков и проверок ([dev-guardrails](https://github.com/mokevnin/dev-guardrails), раздел Git hooks). Уровней три. Быстрый `pre-commit` запускает шаги из `hk.pkl` на изменённых файлах, медленный `pre-push` проверяет проект целиком (`mise run lint`), а CI повторяет те же шаги командой `hk check --all`, потому что хук можно обойти.
+
 Хуки ставит `mise run setup`, то есть `hk install --mise`, шаги описаны в `hk.pkl`. Ключ `--mise` пишет в хук `mise x -- hk`, и версии берутся из `mise.toml` и `mise.lock` независимо от PATH git-клиента. Установка идёт в конкретный репозиторий, общий `core.hooksPath` не используется, потому что он переносит хуки одного репозитория на другие.
 
 Хук метарепозитория работает только в его git. У клонов в `repos/` свой `.git` и свои хуки, поэтому коммит внутри клона наш хук не запускает. Это граница, на которой общая проверка клонов держится на задаче `mise run check`, а не на хуке.
@@ -34,6 +36,7 @@
 | `mise-tasks` | правится `mise-tasks/` | `bash -n` по каждому файлу |
 | `mise-validate` | правится `mise.toml` или `mise-tasks/` | `mise tasks validate --errors-only` |
 | `mise-fmt` | правится `mise.toml` | `mise fmt --check`, исправление `mise fmt` |
+| `lint` (`pre-push`) | перед push | `mise run lint` |
 
 Проверка самого файла: `hk validate`. Запуск без коммита: `hk check --all`.
 
