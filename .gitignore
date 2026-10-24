@@ -9,3 +9,7 @@ repos/*
 .claude/settings.local.json
 
 .DS_Store
+
+# Личные настройки mise не коммитятся.
+mise.local.toml
+mise.local.lock

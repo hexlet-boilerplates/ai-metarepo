@@ -13,4 +13,14 @@ steps {
         exclude = List("mise-tasks/README.md")
         check = "for f in {{files}}; do bash -n \"$f\" || exit 1; done"
     }
+    ["mise-validate"] {
+        glob = List("mise.toml", "mise-tasks/**")
+        exclude = List("mise-tasks/README.md")
+        check = "mise tasks validate --errors-only"
+    }
+    ["mise-fmt"] {
+        glob = List("mise.toml")
+        check = "mise fmt --check"
+        fix = "mise fmt"
+    }
 }

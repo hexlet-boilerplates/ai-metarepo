@@ -10,14 +10,19 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - uses: jdx/mise-action@v5
+      - name: Проверить mise.toml, задачи и hk.pkl
+        run: mise exec -- hk check --all
       - name: Клонировать шаблоны
         run: mise run clone
       - name: Проверить правила и контракт

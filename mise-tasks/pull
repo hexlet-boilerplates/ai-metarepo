@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-#MISE description="Обновить каждый клон в repos/ через git pull --rebase --autostash"
+#MISE description="Подтянуть каждый клон в repos/ без перезаписи локальных правок"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
-for dir in repos/*/; do
-	[ -d "$dir/.git" ] || continue
-	echo "== $dir"
-	git -C "$dir" pull --rebase --autostash
-done
+# Клон с локальными правками пропускается с предупреждением, остальные
+# обновляются fast-forward. Rebase и autostash здесь не нужны, mise их не делает.
+mise bootstrap repos update --skip-dirty --yes

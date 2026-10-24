@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Проверить правила ast-grep и контракт из specs/ по всем клонам"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
 ast-grep test --skip-snapshot-tests
 

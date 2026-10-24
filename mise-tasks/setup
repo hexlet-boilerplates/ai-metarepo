@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#MISE description="Поставить инструменты и git-хуки метарепозитория"
+#MISE description="Поставить git-хуки метарепозитория"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
-mise install
-# hk пишет хуки в .git/config этого репозитория, общий core.hooksPath не нужен.
-hk install
+# Инструменты уже стоят, потому что mise run ставит недостающее из mise.toml
+# перед задачей. Ключ --mise пишет в хук `mise x -- hk`, и хук берёт версии из
+# mise.toml и mise.lock независимо от PATH git-клиента.
+hk install --mise

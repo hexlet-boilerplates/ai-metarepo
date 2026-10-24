@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #MISE description="Показать ветку и число изменённых файлов в каждом клоне"
+#MISE quiet=true
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
 # Ветка проверяется в каждом репозитории отдельно: у клонов свои git и свои
 # ветки, метарепозиторий их не знает.

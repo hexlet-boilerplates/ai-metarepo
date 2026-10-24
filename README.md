@@ -4,17 +4,15 @@
 
 ## Быстрый старт
 
-Нужны [mise](https://mise.jdx.dev) и аккаунт GitHub, в который вы вошли через `gh`.
+Нужен [mise](https://mise.jdx.dev).
 
 ```sh
-gh auth login
-mise trust
 mise run setup
 mise run clone
 mise run check
 ```
 
-`setup` ставит инструменты из `mise.toml` и git-хуки. `clone` кладёт четыре шаблона в `repos/`. `check` запускает правила `ast-grep` по всем клонам и проверяет контракт из `specs/`.
+`setup` ставит git-хуки, инструменты mise доставляет сам. `clone` кладёт четыре шаблона из `[bootstrap.repos]` в `repos/`. `check` запускает правила `ast-grep` по всем клонам и проверяет контракт из `specs/`.
 
 ## Что внутри
 
@@ -23,9 +21,9 @@ mise run check
 | `AGENTS.md` | Правила для агента и навигация по документам | читается агентом при старте |
 | `GLOSSARY.md` | Термины предметной области | |
 | `CODING_STANDARDS.md` | Общие стандарты кода для шаблонов | |
-| `mise.toml`, `mise-tasks/` | Инструменты и задачи | [mise-tasks/README.md](mise-tasks/README.md) |
+| `mise.toml`, `mise-tasks/` | Инструменты, список клонов и задачи | [mise-tasks/README.md](mise-tasks/README.md) |
 | `hk.pkl` | Git-хуки метарепозитория | [docs/agents/tooling.md](docs/agents/tooling.md) |
-| `.ghorg.conf.yaml` | Какие репозитории клонировать | [repos/README.md](repos/README.md) |
+| `mise.lock` | Точные версии инструментов | [docs/agents/tooling.md](docs/agents/tooling.md) |
 | `sgconfig.yml`, `ast-grep/` | Правила, которые проверяются кодом | [ast-grep/README.md](ast-grep/README.md) |
 | `specs/` | Спеки и контракты, общие для шаблонов | [specs/README.md](specs/README.md) |
 | `docs/agents/` | Подробные правила для агента | [docs/agents/README.md](docs/agents/README.md) |
@@ -38,9 +36,9 @@ mise run check
 
 | Команда | Что делает |
 | --- | --- |
-| `mise run setup` | Ставит инструменты и git-хуки |
-| `mise run clone` | Клонирует шаблоны через ghorg, повторный запуск безопасен |
-| `mise run pull` | Обновляет каждый клон через `git pull --rebase --autostash` |
+| `mise run setup` | Ставит git-хуки |
+| `mise run clone` | Клонирует шаблоны из `[bootstrap.repos]`, повторный запуск безопасен |
+| `mise run pull` | Подтягивает каждый клон, клоны с правками пропускает |
 | `mise run status` | Показывает ветку и число изменённых файлов в каждом клоне |
 | `mise run check` | Тесты правил, `ast-grep scan` по клонам, проверка контракта |
 | `mise run worktree <repo> <branch>` | Создаёт worktree под задачу в клоне |
@@ -53,6 +51,10 @@ mise run check
 ## Related
 
 Похожие репозитории, статьи и инструменты. Список собран 23 октября 2026 года, часть проектов небольшие и могут устареть.
+
+### Книга
+
+- [Agentic Design Patterns](https://mokevnin.github.io/agentic-coding-design-patterns/), книга о паттернах работы с агентами, на английском, русском и испанском.
 
 ### Источник тулов
 
@@ -95,7 +97,7 @@ mise run check
 - [west](https://docs.zephyrproject.org/latest/develop/west/workspaces.html), Zephyr, манифест `west.yml` в [zephyr](https://github.com/zephyrproject-rtos/zephyr/blob/main/west.yml).
 - [repo](https://gerrit.googlesource.com/git-repo/+/HEAD/docs/manifest-format.md), Android, [манифест AOSP](https://android.googlesource.com/platform/manifest/+/refs/heads/main/default.xml).
 - [git submodule](https://git-scm.com/docs/git-submodule).
-- [ghorg](https://github.com/gabrie30/ghorg), клонирование организации, используется здесь.
+- [ghorg](https://github.com/gabrie30/ghorg), клонирование организации.
 
 ### Документация агентов
 

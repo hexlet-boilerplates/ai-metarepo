@@ -1,15 +1,30 @@
-# Инструменты и задачи метарепозитория. Одна команда ставит всё необходимое.
+# Инструменты, клоны и задачи метарепозитория. Одна команда ставит хуки,
+# остальное mise доставляет сам перед запуском задачи.
 #
-#   mise trust && mise run setup
+#   mise run setup
 #
-# Версии здесь latest, потому что демонстрации нужна рабочая связка на сегодня,
-# а не воспроизводимая сборка. Для проекта с релизами версии фиксируют.
+# Версии здесь latest, а точные версии и контрольные суммы лежат в mise.lock.
+# Обновление идёт командой `mise lock --bump`, после неё проверьте `mise run check`.
+
+# Старше этой версии не работают [doctor.checks] и [bootstrap.repos].
+min_version = "2026.9.6"
 
 [tools]
-"aqua:gabrie30/ghorg" = "latest"
 "aqua:ast-grep/ast-grep" = "latest"
-gh = "latest"
 hk = "latest"
 pkl = "latest"
+
+# Клоны шаблонов. Адрес это весь манифест, mise не трогает правки в клонах.
+[bootstrap.repos]
+"repos/nodejs-package" = { url = "https://github.com/hexlet-boilerplates/nodejs-package.git" }
+"repos/typescript-package" = { url = "https://github.com/hexlet-boilerplates/typescript-package.git" }
+"repos/vite-package" = { url = "https://github.com/hexlet-boilerplates/vite-package.git" }
+"repos/fastify-api-application" = { url = "https://github.com/hexlet-boilerplates/fastify-api-application.git" }
+
+# Проверка окружения, запускается командой `mise doctor project`.
+[doctor.checks.clones]
+description = "Клоны лежат в repos/"
+run = "ls repos/*/.git >/dev/null"
+hint = "Выполните `mise run clone`."
 
 # Задачи лежат файлами в mise-tasks/ (см. mise-tasks/README.md).

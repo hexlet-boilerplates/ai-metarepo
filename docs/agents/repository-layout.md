@@ -34,7 +34,7 @@ ai-metarepo/            git метарепозитория
 
 ## Клонирование
 
-Клонирует ghorg через `mise run clone`, выбор репозиториев в `.ghorg.conf.yaml`. Подробности и запрет на `git clean` в [../../repos/README.md](../../repos/README.md), причина выбора в [ADR 0001](../adr/0001-clones-via-ghorg-not-submodules.md).
+Клонирует `mise run clone`, список репозиториев лежит в `[bootstrap.repos]` в `mise.toml`. Подробности в [../../repos/README.md](../../repos/README.md), причина выбора в [ADR 0004](../adr/0004-clones-via-mise-bootstrap-repos.md).
 
 Версия клона равна моменту клонирования. Если нужна воспроизводимая пара «спека плюс код на конкретных коммитах», этой раскладки недостаточно, нужны submodules или манифест с хешами.
 

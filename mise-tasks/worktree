@@ -3,7 +3,6 @@
 #USAGE arg "<repo>" help="Имя клона в repos/, например nodejs-package"
 #USAGE arg "<branch>" help="Имя новой ветки, например fix-lint-config"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
 repo="$usage_repo"
 branch="$usage_branch"

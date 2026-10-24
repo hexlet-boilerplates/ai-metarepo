@@ -14,7 +14,7 @@
 
 ## Клоны
 
-- Клонирует и обновляет `mise run clone`. Флаг `GHORG_NO_CLEAN` в `.ghorg.conf.yaml` не снимай, без него повторный запуск стирает неоформленные правки в клонах (ADR 0001).
+- Клонирует `mise run clone`, обновляет `mise run pull`. Список клонов задаёт `[bootstrap.repos]` в `mise.toml`. Клон с правками mise не трогает, и это поведение не обходи (ADR 0004).
 - `repos/` в `.gitignore`. Файлы клонов коммитятся в их репозиториях, не в этот.
 - Не создавай `CLAUDE.md`, `CLAUDE.local.md` и `.claude/CLAUDE.md`. Любой из них отключает чтение `AGENTS.md` в Claude Code (ADR 0002).
 

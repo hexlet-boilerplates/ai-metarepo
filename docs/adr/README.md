@@ -6,9 +6,10 @@
 
 | Номер | Решение | Статус |
 | --- | --- | --- |
-| [0001](0001-clones-via-ghorg-not-submodules.md) | Клоны через ghorg, без submodules | accepted |
+| [0001](0001-clones-via-ghorg-not-submodules.md) | Клоны через ghorg, без submodules | superseded by 0004 |
 | [0002](0002-only-agents-md.md) | Только `AGENTS.md`, без `CLAUDE.md` | accepted |
 | [0003](0003-rules-as-code.md) | Общие правила проверяются кодом | accepted |
+| [0004](0004-clones-via-mise-bootstrap-repos.md) | Клоны через `[bootstrap.repos]` в mise, без submodules | accepted |
 
 ## Формат
 

@@ -3,7 +3,6 @@
 #USAGE arg "<repo>" help="Имя клона в repos/"
 #USAGE arg "<branch>" help="Ветка, под которую создан worktree"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
 repo="$usage_repo"
 branch="$usage_branch"

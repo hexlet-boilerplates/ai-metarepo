@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-#MISE description="Клонировать шаблоны hexlet-boilerplates в repos/ через ghorg"
+#MISE description="Клонировать шаблоны из [bootstrap.repos] в repos/"
 set -euo pipefail
-cd "$MISE_CONFIG_ROOT"
 
-# Повторный запуск безопасен: GHORG_NO_CLEAN в .ghorg.conf.yaml запрещает
-# git clean, и существующие клоны только подтягиваются.
-GHORG_GITHUB_TOKEN="$(gh auth token)" \
-	ghorg clone --config .ghorg.conf.yaml --path "$MISE_CONFIG_ROOT" hexlet-boilerplates
+# Повторный запуск безопасен: готовые клоны остаются как есть, а клон с правками
+# mise не трогает и останавливается с ошибкой.
+mise bootstrap repos apply --yes

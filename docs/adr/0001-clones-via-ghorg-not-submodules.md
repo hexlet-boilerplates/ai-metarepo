@@ -1,5 +1,6 @@
 ---
-status: accepted
+status: superseded
+superseded-by: 0004
 ---
 
 # Шаблоны подключаются клонами через ghorg, а не submodules
