@@ -27,6 +27,19 @@ shellcheck = "latest"
 "repos/typescript-package" = { url = "https://github.com/hexlet-boilerplates/typescript-package.git" }
 "repos/vite-package" = { url = "https://github.com/hexlet-boilerplates/vite-package.git" }
 "repos/fastify-api-application" = { url = "https://github.com/hexlet-boilerplates/fastify-api-application.git" }
+"repos/java-package" = { url = "https://github.com/hexlet-boilerplates/java-package.git" }
+"repos/sicp-racket" = { url = "https://github.com/hexlet-boilerplates/sicp-racket.git" }
+"repos/fastify-nodejs-application" = { url = "https://github.com/hexlet-boilerplates/fastify-nodejs-application.git" }
+"repos/php-package" = { url = "https://github.com/hexlet-boilerplates/php-package.git" }
+"repos/csharp-package" = { url = "https://github.com/hexlet-boilerplates/csharp-package.git" }
+"repos/spring-boot-application" = { url = "https://github.com/hexlet-boilerplates/spring-boot-application.git" }
+"repos/ruby-gem" = { url = "https://github.com/hexlet-boilerplates/ruby-gem.git" }
+"repos/html-boilerplate" = { url = "https://github.com/hexlet-boilerplates/html-boilerplate.git" }
+"repos/vagrant-ansible" = { url = "https://github.com/hexlet-boilerplates/vagrant-ansible.git" }
+"repos/python-package" = { url = "https://github.com/hexlet-boilerplates/python-package.git" }
+"repos/gopackage" = { url = "https://github.com/hexlet-boilerplates/gopackage.git" }
+"repos/data_analytics_package" = { url = "https://github.com/hexlet-boilerplates/data_analytics_package.git" }
+"repos/ansible" = { url = "https://github.com/hexlet-boilerplates/ansible.git" }
 
 # Проверка окружения, запускается командой `mise doctor project`.
 [doctor.checks.clones]

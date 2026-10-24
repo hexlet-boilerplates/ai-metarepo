@@ -14,6 +14,19 @@
 | `typescript-package` | пакет на TypeScript |
 | `vite-package` | пакет на Vite |
 | `fastify-api-application` | API-приложение на Fastify |
+| `fastify-nodejs-application` | веб-приложение на Fastify с сессиями и Drizzle ORM |
+| `java-package` | пакет на Java и Gradle |
+| `spring-boot-application` | приложение на Spring Boot |
+| `csharp-package` | пакет на C# и .NET |
+| `gopackage` | пакет на Go |
+| `php-package` | пакет на PHP |
+| `ruby-gem` | гем на Ruby |
+| `python-package` | пакет на Python и uv |
+| `data_analytics_package` | анализ данных в Jupyter |
+| `html-boilerplate` | HTML и CSS |
+| `sicp-racket` | задачи SICP на Racket |
+| `ansible` | плейбук Ansible |
+| `vagrant-ansible` | Vagrant и Ansible |
 
 ## Как это работает
 

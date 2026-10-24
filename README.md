@@ -12,7 +12,7 @@ mise run clone
 mise run check
 ```
 
-`setup` ставит git-хуки, инструменты mise доставляет сам. `clone` кладёт четыре шаблона из `[bootstrap.repos]` в `repos/`. `check` запускает правила `ast-grep` по всем клонам и проверяет контракт из `specs/`.
+`setup` ставит git-хуки, инструменты mise доставляет сам. `clone` кладёт шаблоны из `[bootstrap.repos]` в `repos/`. `check` запускает правила `ast-grep` по всем клонам и проверяет контракт из `specs/`.
 
 ## Что внутри
 
