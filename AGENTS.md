@@ -38,7 +38,7 @@
 | mise, хуки, ast-grep | `docs/agents/tooling.md` |
 | Настройки агента, разрешения, MCP, скиллы | `docs/agents/agent-settings.md` |
 | Общие требования к шаблонам | `specs/boilerplate-conventions.md` |
-| Почему устроено так | `docs/adr/` |
+| Почему устроено так, отклонённые варианты | `docs/adr/` |
 | Стандарты кода | `CODING_STANDARDS.md` |
 | Термины | `GLOSSARY.md` |
 
