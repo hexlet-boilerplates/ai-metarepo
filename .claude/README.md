@@ -4,7 +4,7 @@
 
 | Путь | Назначение |
 | --- | --- |
-| `settings.json` | Запреты на `git push` и чтение `.env` |
+| `settings.json` | Запрет на чтение `.env` |
 | `skills` | Ссылка на `../.agents/skills` |
 
 Личные настройки лежат в `settings.local.json`, он в `.gitignore`. Подробности в [docs/agents/agent-settings.md](../docs/agents/agent-settings.md).
