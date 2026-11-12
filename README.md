@@ -51,7 +51,7 @@ mise run check
 
 ## Related
 
-Похожие репозитории, статьи и инструменты. Список собран 23 октября 2026 года, часть проектов небольшие и могут устареть.
+Похожие репозитории, статьи и инструменты. Список собран 23 октября 2026 года и дополнен 12 ноября 2026 года, часть проектов небольшие и могут устареть.
 
 ### Книга
 
@@ -72,6 +72,7 @@ mise run check
 
 ### Статьи
 
+- [The Home Repo Pattern](https://aihero.dev/the-home-repo-pattern), статья Мэтта Покока и [видео](https://www.youtube.com/watch?v=hWe-j78vNpc) к ней. Общие скиллы, стандарты и карта репозиториев в одном репозитории, откуда запускается агент, а при росте числа репозиториев карта делится на файлы по областям.
 - [The Meta-Repo Pattern](https://devnewsletter.com/p/meta-repo-pattern/) и [Operating a Meta-Repo](https://devnewsletter.com/p/operating-a-meta-repo/).
 - [In Which We Give Our AI Agent a Map](https://seylox.github.io/2026/03/05/blog-agents-meta-repo-pattern.html), карта репозиториев в `AGENTS.md`.
 - [The Spine Pattern](https://tsoporan.com/blog/spine-pattern-multi-repo-ai-development/).

@@ -33,6 +33,7 @@
 | Область работы | Что прочитать |
 | --- | --- |
 | Раскладка, запуск агента, клоны | `docs/agents/repository-layout.md` |
+| Какие шаблоны есть и их стек | `repos/README.md` |
 | Worktrees и параллельные задачи | `docs/agents/worktrees.md` |
 | mise, хуки, ast-grep | `docs/agents/tooling.md` |
 | Настройки агента, разрешения, MCP, скиллы | `docs/agents/agent-settings.md` |
