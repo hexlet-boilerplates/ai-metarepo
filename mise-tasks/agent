@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#MISE description="Запустить Claude Code в корне метарепозитория со скиллами всех клонов"
+#MISE raw=true
+#MISE quiet=true
+set -euo pipefail
+
+# Скиллы клона Claude Code загружает только из каталогов --add-dir
+# (docs/agents/repository-layout.md). Остальные аргументы уходят в claude,
+# например `mise run agent -- --resume`.
+dirs=()
+for dir in repos/*/; do
+	[ -d "$dir/.git" ] || continue
+	dirs+=(--add-dir "${dir%/}")
+done
+exec claude "${dirs[@]}" "$@"

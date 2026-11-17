@@ -6,6 +6,7 @@
 
 | Файл | Что делает |
 | --- | --- |
+| `agent` | Claude Code в корне со скиллами клонов, по `--add-dir` на клон |
 | `setup` | `hk install --mise` |
 | `clone` | `mise bootstrap repos apply`, клонирует шаблоны из `[bootstrap.repos]` |
 | `pull` | `git pull --rebase --autostash` в каждом клоне, конфликты выводит списком |
